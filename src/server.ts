@@ -3,7 +3,6 @@ import 'dotenv/config';
 import express, { Request, Response } from 'express';
 import session from 'express-session';
 import path from 'path';
-import { middlewareGlobal } from './middlewares/middlewarGlobal';
 import apiRoutes from './router';
 
 const server = express();
@@ -30,7 +29,6 @@ const sessionOptions = session({
 
 server.use(sessionOptions);
 
-server.use(middlewareGlobal);
 server.use(apiRoutes);
 
 server.use((req: Request, res: Response) => {
