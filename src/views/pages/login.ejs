@@ -1,0 +1,19 @@
+<%- include('../partials/head') %>
+  <div class="container">
+    <main>
+      <h3><%= title %></h3>
+
+      <% if (mensagem !== "") { %>
+        <div class="mensagem-<%=typeError%>"><%=mensagem%></div>
+      <% } %>
+
+      <form action="/<%=type%>" method="post">
+        <label for="nome">Nome</label>
+        <input type="text" name="email" id="nome">
+        <label for="senha">Senha</label>
+        <input type="password" name="senha" id="senha">
+        <button type="submit"><%= textButton %></button>
+      </form>
+    </main>
+  </div>
+<%- include('../partials/footer') %>
