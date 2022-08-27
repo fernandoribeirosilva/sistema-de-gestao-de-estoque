@@ -1,5 +1,8 @@
-@import './login.css';
+@import "./login.css";
+@import "./header.css";
+@import "./menu.css";
 
+/* GERAL */
 * {
   margin: 0;
   padding: 0;
@@ -8,41 +11,167 @@
 
 body {
   background-color: #f2f3f4;
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
 }
 
-.mensagem-error {
-  width: 100%;
-  height: 3.12rem;
+h3 {
+  font-size: 1.25rem;
+  text-align: center;
   margin-bottom: 1.25rem;
-  border-radius: .25rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1rem;
-  background-color: #fe6f5e;
 }
 
-.mensagem-warning {
+input {
+  display: block;
   width: 100%;
-  height: 3.12rem;
-  margin-bottom: 1.25rem;
-  border-radius: .25rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  /* 40px */
+  height: 2.5rem;
+  padding: 5px;
+  outline: none;
   font-size: 1rem;
-  background-color: #ffff31;
+  margin-bottom: 1.25rem;
+  margin-top: 0.25rem;
+  border: 1px solid #ddd;
+  /* 4px */
+  border-radius: 0.25rem;
+  transition: all 100ms ease;
 }
 
+input:focus {
+  border: 2px solid #318ce7;
+}
+
+button {
+  width: 100%;
+  /* 40px */
+  height: 2.5rem;
+  font-size: 1rem;
+  background-color: #318ce7;
+  border: none;
+  /* 4px */
+  border-radius: 0.25rem;
+  transition: all 300ms ease-in-out;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: #2174c7;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 12.5rem 1fr 1fr;
+  grid-template-rows: 50px repeat(2, 1fr);
+  height: 100vh;
+}
+
+/* MENSAGEM */
+.mensagem-error,
+.mensagem-warning,
 .mensagem-success {
   width: 100%;
   height: 3.12rem;
   margin-bottom: 1.25rem;
-  border-radius: .25rem;
+  border-radius: 0.25rem;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1rem;
+}
+
+.mensagem-error {
+  background-color: #fe6f5e;
+}
+
+.mensagem-warning {
+  background-color: #ffff31;
+}
+
+.mensagem-success {
   background-color: #03c03c;
+}
+
+.body {
+  grid-column: 2 / -1;
+  grid-row: 2 / -1;
+  margin: 2rem 1.25rem;
+}
+
+.body .area-form {
+  /* 900px */
+  width: 56.25rem;
+}
+
+.area-form form input {
+  /* 450px */
+  width: 28.125rem;
+}
+
+/** CARGO E SEXO */
+.area-form .area-cargo-sexo {
+  width: 28.125rem;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem; /* 20px */
+}
+
+.area-form .area-cargo {
+  display: flex;
+  flex-direction: column;
+}
+
+.area-form form #cargo {
+  width: 9.375rem; /* 150px */
+}
+
+/** CHECKBOX */
+
+.area-cargo-sexo .area-checkbox {
+  width: 12.8rem; /* 205px */
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.area-checkbox label[for="sexoF"] {
+  margin-left: 1.25rem;
+}
+
+.area-checkbox #sexoM,
+.area-checkbox #sexoF {
+  width: 1.25rem; /* 20px */
+  margin-top: 1.5rem;
+}
+
+/** BUTTONS SALVAR E CANCELAR  */
+
+.area-form form .area-button {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.area-form form .area-button .btn-salvar,
+.area-form form .area-button .btn-cancelar {
+  width: 5rem;
+  height: 2.5rem;
+  color: #f2f3f4;
+}
+
+.area-form form .area-button .btn-salvar {
+  background-color: #03c03c;
+}
+form .area-button .btn-salvar:hover {
+  background-color: #008628;
+}
+
+.area-form form .area-button .btn-cancelar {
+  background-color: #ff5f56;
+}
+form .area-button .btn-cancelar:hover {
+  background-color: #ff3e34;
 }
