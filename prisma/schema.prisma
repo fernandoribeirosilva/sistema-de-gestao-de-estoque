@@ -11,18 +11,16 @@ datasource db {
 }
 
 model Usuario {
-  id             Int     @id @default(autoincrement())
-  nome           String  @db.VarChar(120)
-  sobrenome      String? @db.VarChar(120)
-  sexo           String  @db.Char(1)
-  data_nacimento String? @db.VarChar(11)
-  token          String  @db.VarChar(200)
-  cargo          String  @db.VarChar(90)
-  senha          String  @db.VarChar(200)
-  email          String  @db.VarChar(80)
+  id        Int     @id @default(autoincrement())
+  nome      String  @db.VarChar(120)
+  sobrenome String? @db.VarChar(120)
+  senha     String  @db.VarChar(200)
+  cpf       String  @unique @db.VarChar(15)
 
   telefone Telefone[]
   venda    Venda[]
+  cargo_id Int?
+  Cargo    Cargo?     @relation(fields: [cargo_id], references: [id])
 
   @@map("usuario")
 }
@@ -35,6 +33,15 @@ model Telefone {
   usuario    Usuario? @relation(fields: [usuario_id], references: [id])
 
   @@map("telefone")
+}
+
+model Cargo {
+  id   Int    @id @default(autoincrement())
+  nome String @unique @db.VarChar(90)
+
+  usuario Usuario[]
+
+  @@map("cargo")
 }
 
 model Produto {
@@ -53,10 +60,10 @@ model Produto {
 model Venda {
   id Int @id @default(autoincrement())
 
-  produto_id Int
-  produto    Produto @relation(fields: [produto_id], references: [id])
+  produto_id Int?
+  produto    Produto? @relation(fields: [produto_id], references: [id])
   usuario_id Int
-  usuario    Usuario @relation(fields: [usuario_id], references: [id])
+  usuario    Usuario  @relation(fields: [usuario_id], references: [id])
 
   qtd_vendida Int
   data_venda  String @db.VarChar(11)
