@@ -111,41 +111,10 @@ a {
   width: 28.125rem;
 }
 
-/** CARGO E SEXO */
-.area-form .area-cargo-sexo {
-  width: 28.125rem;
-  display: flex;
-  align-items: center;
-  gap: 1.25rem; /* 20px */
-}
-
-.area-form .area-cargo {
-  display: flex;
-  flex-direction: column;
-}
+/** CARGO */
 
 .area-form form #cargo {
   width: 9.375rem; /* 150px */
-}
-
-/** CHECKBOX */
-
-.area-cargo-sexo .area-checkbox {
-  width: 12.8rem; /* 205px */
-  height: 2.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.area-checkbox label[for="sexoF"] {
-  margin-left: 1.25rem;
-}
-
-.area-checkbox #sexoM,
-.area-checkbox #sexoF {
-  width: 1.25rem; /* 20px */
-  margin-top: 1.5rem;
 }
 
 /** BUTTONS SALVAR E CANCELAR  */
