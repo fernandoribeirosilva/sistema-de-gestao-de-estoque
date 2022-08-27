@@ -1,22 +1,12 @@
 import prisma from "../config/prisma";
 
-
 class LoginRepository {
-  async existeUsuario(email: string) {
+  async existeUsuario(cpf: string) {
     return await prisma.usuario.findFirst({
       where: {
-        email
+        cpf,
       },
-      select: {
-        id: true,
-        nome: true,
-        sobrenome: true,
-        email: true,
-        cargo: true,
-        senha: true,
-        token: true,
-      }
-    })
+    });
   }
 }
 
