@@ -1,0 +1,34 @@
+aside {
+  grid-row: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  background-color: #6699cc;
+}
+
+.icone-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.5rem;
+  font-size: 2.25rem;
+}
+
+.icone-menu:hover i {
+  cursor: pointer;
+}
+
+.menu-item ul li a {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  transition: background-color 300ms ease-in-out;
+}
+
+.menu-item ul li a:hover {
+  cursor: pointer;
+  background-color: #f2f3f4;
+}
+
+.menu-item ul li a.ativo {
+  background-color: #f2f3f4;
+}

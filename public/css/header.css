@@ -1,0 +1,52 @@
+ul,
+li {
+  list-style: none;
+}
+
+header {
+  grid-column: 2 / -1;
+  /* grid-row: 1 / -1; */
+  width: 100%;
+  height: 3rem;
+  padding: 0 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #eee;
+}
+
+header .logo a {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+header .avatar {
+  /* 200px */
+  width: 9.375rem;
+  height: inherit;
+  padding: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header .area-nome-avatar {
+  display: flex;
+  flex-direction: column;
+}
+
+header .area-nome-avatar .nome {
+  font-size: 1.1rem;
+}
+
+header .area-nome-avatar .cargo {
+  font-size: 0.8rem;
+  color: #888;
+}
+
+header .avatar a {
+  text-decoration: none;
+  color: #000;
+}
+
+/* #f3f4f8 */
