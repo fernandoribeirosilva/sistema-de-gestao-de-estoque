@@ -1,11 +1,16 @@
 <%- include('../partials/head') %>
 <div class="container">
-  <%- include('../partials/menu', {ativoMenu}) %>
+  <%- include('../partials/menu', {ativoMenu, user}) %>
   <%-include('../partials/header', { user }) %>
 
   <div class="body">
     <div class="area-form">
-      <form action="/registrarFuncionario" method="post">
+      <div class="area-erro">
+        <% if (mensagem !== "") { %>
+        <div class="mensagem-<%=typeError%>"><%=mensagem%></div>
+        <% } %>
+      </div>
+      <form action="/registrar-funcionario" method="post">
         <label for="nome">Nome:</label>
         <input type="text" name="nome" id="nome" />
 

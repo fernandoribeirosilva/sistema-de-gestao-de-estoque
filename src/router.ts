@@ -6,13 +6,22 @@ import { loginRequired } from "./middlewares/loginRequired";
 
 const router = Router();
 
-router.get('/', loginRequired, new HomeController().index);
+router.get("/", loginRequired, new HomeController().index);
 
-router.get('/login', new LoginController().login);
-router.get('/registrar-funcionario', loginRequired, new AdminController().registrarFuncionario);
+router.get("/login", new LoginController().login);
+router.get(
+  "/registrar-funcionario",
+  loginRequired,
+  new AdminController().registrarFuncionarioPg
+);
 
-router.post('/verificarLogin', new LoginController().verificarLogin);
+router.post(
+  "/registrar-funcionario",
+  loginRequired,
+  new AdminController().registrarFuncionario
+);
+router.post("/verificarLogin", new LoginController().verificarLogin);
 
-router.get('/sair', new LoginController().logout);
+router.get("/sair", new LoginController().logout);
 
 export default router;

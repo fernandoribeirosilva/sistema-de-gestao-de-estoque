@@ -17,29 +17,28 @@ model Usuario {
   senha     String  @db.VarChar(200)
   cpf       String  @unique @db.VarChar(15)
 
-  telefone Telefone[]
-  venda    Venda[]
-  cargo_id Int?
-  Cargo    Cargo?     @relation(fields: [cargo_id], references: [id])
+  Telefone Telefone[]
+  Venda    Venda[]
+  cargo_id Int
+  Cargo    Cargo      @relation(fields: [cargo_id], references: [id])
 
   @@map("usuario")
 }
 
 model Telefone {
   id     Int    @id @default(autoincrement())
-  numero String @db.VarChar(20)
+  numero String @unique @db.VarChar(20)
 
-  usuario_id Int?
-  usuario    Usuario? @relation(fields: [usuario_id], references: [id])
+  usuario_id Int
+  Usuario    Usuario @relation(fields: [usuario_id], references: [id])
 
   @@map("telefone")
 }
 
 model Cargo {
-  id   Int    @id @default(autoincrement())
-  nome String @unique @db.VarChar(90)
-
-  usuario Usuario[]
+  id      Int       @id @default(autoincrement())
+  nome    String    @unique @db.VarChar(90)
+  Usuario Usuario[]
 
   @@map("cargo")
 }

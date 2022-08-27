@@ -1,12 +1,10 @@
 import bcrypt from "bcrypt";
 import LoginRepository from "../../repositories/login.repository";
 import { LoginType } from "../../types/Login";
-import { User } from "../../types/User";
 
 export class LoginService {
-  async verificarLogin(body: LoginType): Promise<User> {
+  async verificarLogin(body: LoginType) {
     const { cpf, senha } = body;
-
     const dataUser = await LoginRepository.existeUsuario(cpf);
     if (!dataUser) {
       throw new Error("CPF e/ou senha esta errador!");

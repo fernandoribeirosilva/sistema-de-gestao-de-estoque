@@ -1,4 +1,5 @@
-const mensagem = document.querySelector(".mensagem-error");
+const mensagemError = document.querySelector(".mensagem-error");
+const mensagemSuccess = document.querySelector(".mensagem-success");
 const btnCancelar = document.querySelector(".btn-cancelar");
 
 const inputNome = document.querySelector('input[name="nome"]');
@@ -7,7 +8,8 @@ const inputTelefone = document.querySelector('input[name="telefone"]');
 const inputCargo = document.querySelector('input[name="cargo"]');
 const inputSenha = document.querySelector('input[name="senha"]');
 
-if (mensagem) {
+if (mensagemError || mensagemSuccess) {
+  let mensagem = mensagemError ?? mensagemSuccess;
   setTimeout(() => {
     mensagem.style.display = "none";
   }, 5000);

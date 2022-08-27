@@ -1,10 +1,9 @@
 export type User = {
-  id: number;
+  id?: number;
   nome: string;
   sobrenome: string | null;
-  cpf: string;
-  Cargo: {
-    nome: string;
-  };
+  telefone?: string;
+  CPF: string;
+  cargoNome: string;
   senha?: string;
 };

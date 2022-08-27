@@ -17,6 +17,10 @@ aside {
   cursor: pointer;
 }
 
+.area-menu {
+  position: relative;
+}
+
 .menu-item ul li a {
   display: flex;
   align-items: center;
@@ -31,4 +35,20 @@ aside {
 
 .menu-item ul li a.ativo {
   background-color: #f2f3f4;
+}
+
+.btn-sair a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 2.5rem; /* 40px */
+  font-size: 1.2rem;
+  background-color: #3f73a7;
+  position: absolute;
+  bottom: 0;
+  transition: all 300ms ease-in-out;
+}
+.btn-sair a:hover {
+  background-color: #2f76bd;
 }

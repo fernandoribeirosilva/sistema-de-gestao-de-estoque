@@ -9,17 +9,10 @@
           href="/" 
           class="<%=  ativoMenu === "home" ? 'ativo' : '' %>"
         >
-          Home
+          Estoque
         </a>
       </li>
-      <li>
-        <a 
-          href="/relatorio" 
-          class="<%=  ativoMenu === "relatorio" ? 'ativo' : '' %>"
-        >
-          Relatório
-        </a>
-      </li>
+      
       <li>
         <a
           href="/venda" 
@@ -28,22 +21,38 @@
           Vendar
         </a>
       </li>
-      <li>
-        <a 
-          href="/novo-produto" 
-          class="<%=  ativoMenu === "novo-produto" ? 'ativo' : '' %>"
-        >
-          Novo Produto
-        </a>
-      </li>
-      <li>
-        <a 
-          href="/registrar-funcionario" 
-          class="<%=  ativoMenu === "registrarFuncionario" ? 'ativo' : '' %>"
-        >
-          Novo Funciónario
-        </a>
-      </li>
+
+      <% if (user.Cargo.nome === "gerente") { %>
+        <li>
+          <a 
+            href="/relatorio" 
+            class="<%=  ativoMenu === "relatorio" ? 'ativo' : '' %>"
+          >
+            Relatório
+          </a>
+        </li>
+        
+        <li>
+          <a 
+            href="/novo-produto" 
+            class="<%=  ativoMenu === "novo-produto" ? 'ativo' : '' %>"
+          >
+            Novo Produto
+          </a>
+        </li>
+
+        <li>
+          <a 
+            href="/registrar-funcionario" 
+            class="<%=  ativoMenu === "registrarFuncionario" ? 'ativo' : '' %>"
+          >
+            Novo Funciónario
+          </a>
+        </li>
+      <% } %>
     </ul>
+    <div class="btn-sair">
+      <a href="/sair">Sair</a>
+    </div>
   </div>
 </aside>

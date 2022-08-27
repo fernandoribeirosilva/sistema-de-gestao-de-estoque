@@ -12,13 +12,13 @@ export default class LoginController {
       }, 1000);
     }
 
-    res.render('pages/login', {
-      title: 'Login',
-      type: 'verificarLogin',
-      textButton: 'Entra',
+    res.render("pages/login", {
+      title: "Login",
+      type: "verificarLogin",
+      textButton: "Entra",
       typeError,
-      mensagem
-    })
+      mensagem,
+    });
   }
 
   async verificarLogin(req: Request, res: Response) {
@@ -28,15 +28,14 @@ export default class LoginController {
 
       req.session.user = user;
       req.session.save(() => {
-        return res.redirect('/');
-      })
-
+        return res.redirect("/");
+      });
     } catch (error: InstanceType<Error>) {
       typeError = "error";
       mensagem = error.message;
 
       req.session.save(() => {
-        return res.redirect('back');
+        return res.redirect("back");
       });
       return;
     }
@@ -44,6 +43,6 @@ export default class LoginController {
 
   logout(req: Request, res: Response) {
     req.session.destroy();
-    return res.redirect('/login');
+    return res.redirect("/login");
   }
 }

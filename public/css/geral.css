@@ -101,6 +101,10 @@ a {
   margin: 2rem 1.25rem;
 }
 
+.area-erro {
+  width: 50%;
+}
+
 .body .area-form {
   /* 900px */
   width: 56.25rem;
