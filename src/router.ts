@@ -12,13 +12,13 @@ router.get("/login", new LoginController().login);
 router.get(
   "/registrar-funcionario",
   loginRequired,
-  new AdminController().registrarFuncionarioPg
+  new AdminController().registrarFuncionario
 );
 
 router.post(
   "/registrar-funcionario",
   loginRequired,
-  new AdminController().registrarFuncionario
+  new AdminController().registrarFuncionarioAction
 );
 router.post("/verificarLogin", new LoginController().verificarLogin);
 

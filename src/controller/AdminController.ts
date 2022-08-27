@@ -5,7 +5,7 @@ let typeError: "error" | "success" | "";
 let mensagem: string;
 
 export default class AdminController {
-  registrarFuncionarioPg(req: Request, res: Response) {
+  registrarFuncionario(req: Request, res: Response) {
     if (mensagem) {
       setTimeout(() => {
         mensagem = "";
@@ -22,7 +22,7 @@ export default class AdminController {
     });
   }
 
-  async registrarFuncionario(req: Request, res: Response) {
+  async registrarFuncionarioAction(req: Request, res: Response) {
     try {
       const { nome, cpf, telefone, cargo, senha } = req.body;
       const firstName = nome.split(" ")[0];
