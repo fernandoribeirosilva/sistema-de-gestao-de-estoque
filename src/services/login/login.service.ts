@@ -4,19 +4,19 @@ import { LoginType } from "../../types/Login";
 import { User } from "../../types/User";
 
 export class LoginService {
-  async verificarLogin(body: LoginType): Promise<User | null> {
+  async verificarLogin(body: LoginType): Promise<User> {
     const { cpf, senha } = body;
 
-    const user = await LoginRepository.existeUsuario(cpf);
-    if (!user) {
+    const dataUser = await LoginRepository.existeUsuario(cpf);
+    if (!dataUser) {
       throw new Error("CPF e/ou senha esta errador!");
     }
 
-    const matchSenha = await bcrypt.compare(senha, user.senha);
+    const matchSenha = await bcrypt.compare(senha, dataUser.senha);
     if (!matchSenha) {
       throw new Error("CPF e/ou senha esta errador!");
     }
 
-    return user;
+    return dataUser;
   }
 }

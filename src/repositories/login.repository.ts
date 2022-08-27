@@ -6,6 +6,18 @@ class LoginRepository {
       where: {
         cpf,
       },
+      select: {
+        id: true,
+        nome: true,
+        sobrenome: true,
+        cpf: true,
+        senha: true,
+        Cargo: {
+          select: {
+            nome: true,
+          },
+        },
+      },
     });
   }
 }

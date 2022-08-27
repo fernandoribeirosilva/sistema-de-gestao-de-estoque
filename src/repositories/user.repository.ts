@@ -1,23 +1,15 @@
-import { UserProps } from '../services/user/create.user.service';
+import prisma from "../config/prisma";
 
 class UserRepository {
-   users: UserProps[] = []
-
-   findByUsername(username: string) {
-      const userExists = this.users.find(user => user.username === username);
-      return userExists;
-   }
-
-   save(user: UserProps) {
-      const id = Math.random().toString();
-      user.id = id;
-      const userWithId = {
-         ...user
-      }
-      this.users.push(userWithId);
-      return userWithId;
-   }
-
+  async findByCargo(id: number) {
+    return await prisma.cargo.findFirst({
+      where: { id },
+      select: {
+        id: true,
+        nome: true,
+      },
+    });
+  }
 }
 
-export default new UserRepository 
+export default new UserRepository();
