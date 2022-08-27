@@ -41,4 +41,9 @@ export default class LoginController {
       return;
     }
   }
+
+  logout(req: Request, res: Response) {
+    req.session.destroy();
+    return res.redirect('/login');
+  }
 }
