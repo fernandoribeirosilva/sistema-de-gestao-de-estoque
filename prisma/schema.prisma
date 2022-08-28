@@ -44,11 +44,11 @@ model Cargo {
 }
 
 model Produto {
-  id      Int    @id @default(autoincrement())
-  nome    String @db.VarChar(150)
-  preco   Float
-  qtd_min Int    @default(10)
-  lote    String @db.VarChar(120)
+  id         Int    @id @default(autoincrement())
+  nome       String @db.VarChar(150)
+  preco      Float
+  quantidade Int
+  lote       String @db.VarChar(120)
 
   venda Venda[]
 
