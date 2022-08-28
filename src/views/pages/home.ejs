@@ -9,6 +9,7 @@
       <div class="mensagem-<%=typeError%>"><%=mensagem%></div>
       <% } %>
     </div>
+
     <div class="container-body">
       <div class="search">
         <form action="/pesquisa" method="post">
@@ -18,28 +19,16 @@
           </button>
         </form>
       </div>
+
+      <% if (produto) { %>
       <div class="data-produto">
-        <table>
-          <tr>
-            <th>ID</th>
-            <th>Nome</th>
-            <th>Preço</th>
-            <th>Quantidade</th>
-            <th>lote</th>
-            <th>Tamanho</th>
-          </tr>
-          <tr>
-            <% produto.forEach(produto => { %>
-            <td><%= produto.id %></td>
-            <td><%= produto.nome %></td>
-            <td><%= produto.preco %></td>
-            <td><%= produto.quantidade %></td>
-            <td><%= produto.lote %></td>
-            <td><%= produto.tamanho %></td>
-            <% }) %>
-          </tr>
-        </table>
+        <%- include('../partials/tabela', {produto: produto}) %>
       </div>
+      <% } else { %>
+      <div class="data-produto">
+        <%- include('../partials/tabela', {produto: todoOsProduto})%>
+      </div>
+      <% } %>
     </div>
   </div>
 </div>
