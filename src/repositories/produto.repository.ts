@@ -13,6 +13,16 @@ class ProdutoRepository {
       },
     });
   }
+
+  async BuscarProdutoPeloNome(nome: string) {
+    return await prisma.produto.findMany({
+      where: {
+        nome: {
+          contains: nome,
+        },
+      },
+    });
+  }
 }
 
 export default new ProdutoRepository();
