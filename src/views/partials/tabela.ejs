@@ -1,0 +1,20 @@
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Nome</th>
+    <th>Preço</th>
+    <th>Quantidade</th>
+    <th>lote</th>
+    <th>Tamanho</th>
+  </tr>
+  <% produto.forEach(data => { %>
+  <tr>
+    <td><%= data.id %></td>
+    <td><%= data.nome %></td>
+    <td><%= data.preco %></td>
+    <td><%= data.quantidade %></td>
+    <td><%= data.lote %></td>
+    <td><%= data.tamanho %></td>
+  </tr>
+  <% }) %>
+</table>
