@@ -14,6 +14,7 @@ router.get(
   loginRequired,
   new AdminController().registrarFuncionario
 );
+router.get("/novo-produto", loginRequired, new AdminController().novoProduto);
 
 router.post(
   "/registrar-funcionario",
@@ -21,6 +22,7 @@ router.post(
   new AdminController().registrarFuncionarioAction
 );
 router.post("/verificarLogin", new LoginController().verificarLogin);
+router.post("/novo-produto", new AdminController().novoProdutoAction);
 
 router.get("/sair", new LoginController().logout);
 
