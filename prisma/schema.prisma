@@ -49,6 +49,7 @@ model Produto {
   preco      Float
   quantidade Int
   lote       String @db.VarChar(120)
+  descricao  String @db.VarChar(30)
 
   venda Venda[]
 
