@@ -1,6 +1,8 @@
 @import "./login.css";
 @import "./header.css";
 @import "./menu.css";
+@import "./home.css";
+@import "./tabela-produto.css";
 
 /* GERAL */
 * {
