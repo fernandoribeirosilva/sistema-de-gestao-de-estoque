@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import ProdutoRepository from "../repositories/produto.repository";
 import BuscarProdutoService from "../services/produto/buscar.service";
 
 let typeError: "error" | "success" | "";
@@ -6,12 +7,14 @@ let mensagem: string;
 let produto: any;
 
 export default class HomeController {
-  index(req: Request, res: Response) {
+  async index(req: Request, res: Response) {
     if (mensagem) {
       setTimeout(() => {
         mensagem = "";
       }, 1000);
     }
+
+    const todoOsProduto = await ProdutoRepository.pegarTodosOsProdutos();
 
     const { user } = res.locals;
     res.render("pages/home", {
@@ -20,7 +23,9 @@ export default class HomeController {
       typeError,
       mensagem,
       produto,
+      todoOsProduto,
     });
+    produto = null;
   }
 
   async pesquisa(req: Request, res: Response) {
