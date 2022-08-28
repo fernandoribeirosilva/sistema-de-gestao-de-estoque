@@ -2,5 +2,45 @@
 <div class="container">
   <%- include('../partials/menu', {ativoMenu, user}) %>
   <%-include('../partials/header', { user }) %>
+
+  <div class="body">
+    <div class="area-erro">
+      <% if (mensagem !== "") { %>
+      <div class="mensagem-<%=typeError%>"><%=mensagem%></div>
+      <% } %>
+    </div>
+    <div class="container-body">
+      <div class="search">
+        <form action="/pesquisa" method="post">
+          <input type="search" placeholder="Pesquisar" name="searchTerm" />
+          <button type="submit" class="btn-search">
+            <i class="ph-magnifying-glass-bold"></i>
+          </button>
+        </form>
+      </div>
+      <div class="data-produto">
+        <table>
+          <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Preço</th>
+            <th>Quantidade</th>
+            <th>lote</th>
+            <th>Tamanho</th>
+          </tr>
+          <tr>
+            <% produto.forEach(produto => { %>
+            <td><%= produto.id %></td>
+            <td><%= produto.nome %></td>
+            <td><%= produto.preco %></td>
+            <td><%= produto.quantidade %></td>
+            <td><%= produto.lote %></td>
+            <td><%= produto.tamanho %></td>
+            <% }) %>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
 </div>
 <%- include('../partials/footer') %>
