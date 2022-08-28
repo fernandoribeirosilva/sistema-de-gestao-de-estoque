@@ -14,6 +14,19 @@ class ProdutoRepository {
     });
   }
 
+  async pegarTodosOsProdutos() {
+    return await prisma.produto.findMany({
+      select: {
+        id: true,
+        nome: true,
+        preco: true,
+        quantidade: true,
+        lote: true,
+        tamanho: true,
+      },
+    });
+  }
+
   async BuscarProdutoPeloNome(nome: string) {
     return await prisma.produto.findMany({
       where: {
