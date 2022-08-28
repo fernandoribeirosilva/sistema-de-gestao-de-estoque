@@ -2,6 +2,7 @@ import { Router } from "express";
 import AdminController from "./controller/AdminController";
 import HomeController from "./controller/HomeController";
 import LoginController from "./controller/LoginController";
+import PesquisaController from "./controller/PesquisaController";
 import { loginRequired } from "./middlewares/loginRequired";
 
 const router = Router();
@@ -15,6 +16,7 @@ router.get(
   new AdminController().registrarFuncionario
 );
 router.get("/novo-produto", loginRequired, new AdminController().novoProduto);
+router.get("/pesquisa", loginRequired, new PesquisaController().pesquisa);
 
 router.post(
   "/registrar-funcionario",
