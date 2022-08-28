@@ -1,0 +1,38 @@
+<%-include('../partials/head') %>
+<div class="container">
+  <%-include('../partials/menu', {ativoMenu, user}) %>
+  <%-include('../partials/header', { user }) %>
+
+  <div class="body">
+    <div class="area-form">
+      <div class="area-erro">
+        <% if (mensagem !== "") { %>
+        <div class="mensagem-<%=typeError%>"><%=mensagem%></div>
+        <% } %>
+      </div>
+      <form action="/novo-produto" method="post">
+        <label for="nome">Nome:</label>
+        <input type="text" name="nome" id="nome" />
+
+        <label for="preco">Preço:</label>
+        <input type="text" name="preco" id="preco" />
+
+        <label for="quantidade">Quantidade Produto:</label>
+        <input type="text" name="quantidade" id="quantidade" />
+
+        <label for="lote">Lote:</label>
+        <input type="text" name="lote" id="lote" />
+
+        <label for="tamanho">Tamanho:</label>
+        <input type="text" name="tamanho" id="tamanho" />
+
+        <div class="area-button">
+          <button type="submit" class="btn-salvar">Salvar</button>
+          <button type="submit" class="btn-cancelar">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<%- include('../partials/footer') %>
