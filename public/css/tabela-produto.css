@@ -1,0 +1,24 @@
+.data-produto {
+  grid-column: 1 / 3;
+  grid-row: 2;
+  margin-top: 1.25rem;
+}
+
+.data-produto table {
+  width: 100%;
+  border-collapse: collapse;
+  border-top: 0;
+}
+table tr th,
+table tr td {
+  border: 1px solid #888;
+  padding: 5px;
+}
+
+table tr td {
+  text-align: center;
+}
+
+table tr:nth-child(even) {
+  background-color: #ddd;
+}
