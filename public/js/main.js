@@ -15,11 +15,13 @@ if (mensagemError || mensagemSuccess) {
   }, 5000);
 }
 
-btnCancelar.addEventListener("click", (e) => {
-  e.preventDefault();
-  inputNome.value = "";
-  inputCPF.value = "";
-  inputTelefone.value = "";
-  inputCargo.value = "";
-  inputSenha.value = "";
-});
+if (btnCancelar) {
+  btnCancelar.addEventListener("click", (e) => {
+    e.preventDefault();
+    inputNome.value = "";
+    inputCPF.value = "";
+    inputTelefone.value = "";
+    inputCargo.value = "";
+    inputSenha.value = "";
+  });
+}
