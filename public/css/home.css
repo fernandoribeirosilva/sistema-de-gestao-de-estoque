@@ -5,7 +5,7 @@
   height: 100%;
 }
 
-.search {
+.search form {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -32,4 +32,5 @@
 
 .btn-search:hover {
   cursor: pointer;
+  background-color: #b2beb5;
 }
