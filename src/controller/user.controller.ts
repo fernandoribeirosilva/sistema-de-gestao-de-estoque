@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { CreateUseService } from "../services/admin/create.user.service";
+import { CreateUseService } from "../services/admin/novo.usuario/create.user.service";
 
 class UserController {
   handle(req: Request, res: Response) {
