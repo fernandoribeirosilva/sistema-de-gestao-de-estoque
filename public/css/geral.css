@@ -3,6 +3,7 @@
 @import "./menu.css";
 @import "./home.css";
 @import "./tabela-produto.css";
+@import "./modal.css";
 
 /* GERAL */
 * {
