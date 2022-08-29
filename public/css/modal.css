@@ -1,0 +1,47 @@
+.modal {
+  display: none;
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: all ease 0.5s;
+}
+
+.area-dec-produto {
+  margin-bottom: 1.25rem; /* 20px */
+}
+
+.area-from {
+  width: 37.5rem; /* 600px */
+  height: auto;
+  background-color: #f2f3f4;
+  margin: 3.75rem auto; /* 60px auto */
+  border-radius: 0.25rem; /* 4px */
+  padding: 1.25rem;
+}
+
+form input[type="number"] {
+  width: 50%;
+}
+
+.area-button {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem; /* 20px */
+}
+
+.area-button .btn-Confimar-venda {
+  background-color: #03c03c;
+}
+.area-button .btn-Confimar-venda:hover {
+  background-color: #008628;
+}
+
+.area-button .btn-Cancelar-venda {
+  background-color: #f2f3f4;
+  border: 1px solid #ff5f56;
+  color: #ff5f56;
+}
+.area-button .btn-Cancelar-venda:hover {
+  background-color: #ff5f56;
+  color: #000;
+}
