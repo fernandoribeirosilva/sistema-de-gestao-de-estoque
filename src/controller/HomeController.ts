@@ -14,7 +14,17 @@ export default class HomeController {
       }, 1000);
     }
 
-    const todoOsProduto = await ProdutoRepository.pegarTodosOsProdutos();
+    const dados = await ProdutoRepository.pegarTodosOsProdutos();
+    const todoOsProduto = dados.map((item) => {
+      return {
+        id: item.id,
+        nome: item.nome,
+        preco: item.preco.toFixed(2),
+        quantidade: item.quantidade,
+        lote: item.lote,
+        tamanho: item.tamanho,
+      };
+    });
 
     const { user } = res.locals;
     res.render("pages/home", {
@@ -40,7 +50,7 @@ export default class HomeController {
         return {
           id: dados.id,
           nome: dados.nome,
-          preco: dados.preco.toString(),
+          preco: dados.preco.toFixed(2),
           quantidade: dados.quantidade,
           lote: dados.lote,
           tamanho: dados.tamanho,
