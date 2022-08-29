@@ -5,8 +5,16 @@ class BuscarProdutoService {
     if (!nome) {
       throw new Error("coloque o nome do produto");
     }
+    return await produtoRepository.buscarProdutoPeloNome(nome.toLowerCase());
+  }
 
-    return await produtoRepository.BuscarProdutoPeloNome(nome.toLowerCase());
+  async buscarPeloId(id: number) {
+    const dodosProduto = await produtoRepository.buscarProdutoPeloId(id);
+    if (!dodosProduto) {
+      throw new Error("Produto não existe!");
+    }
+
+    return dodosProduto;
   }
 }
 
