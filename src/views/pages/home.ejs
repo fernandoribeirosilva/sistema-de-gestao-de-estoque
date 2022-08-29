@@ -22,11 +22,13 @@
 
       <% if (produto) { %>
       <div class="data-produto">
-        <%- include('../partials/tabela', {produto: produto}) %>
+        <%-include('../partials/tabela', {produto: produto}) %>
+        <%-include('../partials/modal') %>
       </div>
       <% } else { %>
       <div class="data-produto">
-        <%- include('../partials/tabela', {produto: todoOsProduto})%>
+        <%-include('../partials/tabela', {produto: todoOsProduto})%>
+        <%-include('../partials/modal') %>
       </div>
       <% } %>
     </div>
