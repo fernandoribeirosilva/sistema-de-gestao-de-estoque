@@ -1,0 +1,32 @@
+<div class="modal">
+  <div class="area-from">
+    <div class="area-dec-produto">
+      <table>
+        <tr>
+          <th>ID</th>
+          <th>Nome</th>
+          <th>Preço</th>
+          <th>Tamanho</th>
+        </tr>
+        <tr class="datos-produto">
+          <td class="id">-</td>
+          <td class="nome">-</td>
+          <td class="preco">-</td>
+          <td class="tamanho">-</td>
+        </tr>
+      </table>
+    </div>
+    <form action="/vendaAction" method="post">
+      <input
+        type="number"
+        name="quantidade"
+        placeholder="Quantidade da venda"
+        id="venda"
+      />
+      <div class="area-button">
+        <button type="submit" class="btn-Confimar-venda">Confimar</button>
+        <button type="submit" class="btn-Cancelar-venda">Cancelar</button>
+      </div>
+    </form>
+  </div>
+</div>
