@@ -1,0 +1,33 @@
+<%- include('../partials/head') %>
+<div class="container">
+  <%- include('../partials/menu', {ativoMenu, user}) %>
+  <%-include('../partials/header', { user }) %>
+
+  <div class="body">
+    <div class="area-erro">
+      <% if (mensagem !== "") { %>
+      <div class="mensagem-<%=typeError%>"><%=mensagem%></div>
+      <% } %>
+    </div>
+
+    <div class="container-body">
+      <div class="search">
+        <form action="/vendaAction" method="post">
+          <input type="text" name="nome" />
+          <button type="submit" class="btn-venda">Venda</button>
+        </form>
+      </div>
+
+      <% if (produto) { %>
+      <div class="data-produto">
+        <%- include('../partials/tabela', {produto: produto}) %>
+      </div>
+      <% } else { %>
+      <div class="data-produto">
+        <%- include('../partials/tabela', {produto: todoOsProduto})%>
+      </div>
+      <% } %>
+    </div>
+  </div>
+</div>
+<%- include('../partials/footer') %>
