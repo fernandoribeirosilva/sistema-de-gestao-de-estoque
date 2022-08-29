@@ -27,12 +27,26 @@ class ProdutoRepository {
     });
   }
 
-  async BuscarProdutoPeloNome(nome: string) {
+  async buscarProdutoPeloNome(nome: string) {
     return await prisma.produto.findMany({
       where: {
         nome: {
           contains: nome,
         },
+      },
+    });
+  }
+
+  async buscarProdutoPeloId(id: number) {
+    return await prisma.produto.findUnique({
+      where: {
+        id,
+      },
+      select: {
+        id: true,
+        nome: true,
+        preco: true,
+        tamanho: true,
       },
     });
   }
