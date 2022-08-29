@@ -6,6 +6,7 @@
     <th>Quantidade</th>
     <th>lote</th>
     <th>Tamanho</th>
+    <th>Ação</th>
   </tr>
   <% produto.forEach(data => { %>
   <tr>
@@ -15,6 +16,9 @@
     <td><%= data.quantidade %></td>
     <td><%= data.lote %></td>
     <td><%= data.tamanho %></td>
+    <td class="area-acao-button">
+      <button class="btn-venda" data-key="<%=data.id%>">Venda</button>
+    </td>
   </tr>
   <% }) %>
 </table>
