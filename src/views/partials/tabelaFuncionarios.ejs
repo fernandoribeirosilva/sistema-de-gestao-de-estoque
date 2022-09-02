@@ -1,0 +1,29 @@
+<% if (!funcionarios.length || funcionarios === null) { %>
+<h1>Não tem funcionários reguistrados.</h1>
+<% } else { %>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Nome</th>
+    <th>Cargo</th>
+    <th>Telefone</th>
+    <th>Ação</th>
+  </tr>
+  <% funcionarios.forEach(data => { %>
+  <tr>
+    <td><%= data.id %></td>
+    <td><%= data.nome %></td>
+    <td><%= data.cargoNome %></td>
+    <td><%= data.telefone %></td>
+    <td class="area-acao-button">
+      <button class="btn-atualizar" data-key="<%=data.id%>">
+        <a href="/atualizar/<%=data.id%>/funcionario">Atualizar</a>
+      </button>
+      <button class="btn-deletar" data-key="<%=data.id%>">
+        <a href="/deletar/<%=data.id%>/funcionario">Deletar</a>
+      </button>
+    </td>
+  </tr>
+  <% }) %>
+</table>
+<% } %>

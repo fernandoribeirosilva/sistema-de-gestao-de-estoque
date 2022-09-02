@@ -20,14 +20,14 @@
         </form>
       </div>
 
-      <%if (produto) { %>
+      <%if (funcionarios) { %>
       <div class="data-produto">
-        <%-include('../partials/tabelaProdutos', {produto}) %>
+        <%-include('../partials/tabelaFuncionarios', {funcionarios}) %>
         <%-include('../partials/modal') %>
       </div>
       <% } else { %>
       <div class="data-produto">
-        <%-include('../partials/tabelaProdutos', {produto})%>
+        <%-include('../partials/tabelaFuncionarios', {funcionarios})%>
         <%-include('../partials/modal') %>
       </div>
       <% } %>
