@@ -1,3 +1,6 @@
+<% if (!produto.length || produto === null) { %>
+<h1>Não tem produtos reguistrados.</h1>
+<% } else { %>
 <table>
   <tr>
     <th>ID</th>
@@ -22,3 +25,4 @@
   </tr>
   <% }) %>
 </table>
+<% } %>
