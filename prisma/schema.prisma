@@ -17,9 +17,9 @@ model Usuario {
   senha     String  @db.VarChar(200)
   cpf       String  @unique @db.VarChar(15)
 
-  Telefone Telefone[]
+  Telefone Telefone?
   cargo_id Int
-  Cargo    Cargo      @relation(fields: [cargo_id], references: [id])
+  Cargo    Cargo     @relation(fields: [cargo_id], references: [id])
   venda    Venda[]
 
   @@map("usuario")
@@ -29,7 +29,7 @@ model Telefone {
   id     Int    @id @default(autoincrement())
   numero String @unique @db.VarChar(20)
 
-  usuario_id Int
+  usuario_id Int     @unique
   Usuario    Usuario @relation(fields: [usuario_id], references: [id])
 
   @@map("telefone")
