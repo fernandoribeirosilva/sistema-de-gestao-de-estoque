@@ -31,6 +31,11 @@ router.post(
   loginRequired,
   new AdminController().registrarFuncionarioAction
 );
+router.post(
+  "/atualizar-funcionario",
+  loginRequired,
+  new UsuarioController().atualizarAction
+);
 router.post("/verificarLogin", new LoginController().verificarLogin);
 router.post("/novo-produto", new AdminController().novoProdutoAction);
 router.post("/produto/venda", new ProdutoController().venderProduto);
