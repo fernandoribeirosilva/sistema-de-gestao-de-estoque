@@ -16,6 +16,11 @@ class ProdutoRepository {
 
   async pegarTodosOsProdutos() {
     return await prisma.produto.findMany({
+      where: {
+        quantidade: {
+          gt: 0,
+        },
+      },
       select: {
         id: true,
         nome: true,
@@ -23,6 +28,9 @@ class ProdutoRepository {
         quantidade: true,
         lote: true,
         tamanho: true,
+      },
+      orderBy: {
+        id: "asc",
       },
     });
   }
@@ -47,6 +55,16 @@ class ProdutoRepository {
         nome: true,
         preco: true,
         tamanho: true,
+        quantidade: true,
+      },
+    });
+  }
+
+  async atualizarQuantidade(produtoId: number, quantidade: number) {
+    return await prisma.produto.updateMany({
+      where: { id: produtoId },
+      data: {
+        quantidade,
       },
     });
   }

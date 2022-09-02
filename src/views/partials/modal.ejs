@@ -1,6 +1,7 @@
 <div class="modal">
   <div class="area-from">
     <div class="area-dec-produto">
+      <div class="error"></div>
       <table>
         <tr>
           <th>ID</th>
@@ -16,12 +17,12 @@
         </tr>
       </table>
     </div>
-    <form action="/vendaAction" method="post">
+    <form method="post">
       <input
         type="number"
         name="quantidade"
         placeholder="Quantidade da venda"
-        id="venda"
+        id="quantidade"
       />
       <div class="area-button">
         <button type="submit" class="btn-Confimar-venda">Confimar</button>

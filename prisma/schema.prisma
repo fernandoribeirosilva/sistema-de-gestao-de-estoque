@@ -18,9 +18,9 @@ model Usuario {
   cpf       String  @unique @db.VarChar(15)
 
   Telefone Telefone[]
-  Venda    Venda[]
   cargo_id Int
   Cargo    Cargo      @relation(fields: [cargo_id], references: [id])
+  venda    Venda[]
 
   @@map("usuario")
 }
@@ -44,14 +44,13 @@ model Cargo {
 }
 
 model Produto {
-  id         Int    @id @default(autoincrement())
-  nome       String @db.VarChar(150)
+  id         Int     @id @default(autoincrement())
+  nome       String  @db.VarChar(150)
   preco      Float
   quantidade Int
-  lote       String @db.VarChar(120)
-  tamanho    String @db.VarChar(30)
-
-  venda Venda[]
+  lote       String  @db.VarChar(120)
+  tamanho    String  @db.VarChar(30)
+  Venda      Venda[]
 
   @@map("produto")
 }
@@ -59,13 +58,12 @@ model Produto {
 model Venda {
   id Int @id @default(autoincrement())
 
-  produto_id Int?
-  produto    Produto? @relation(fields: [produto_id], references: [id])
-  usuario_id Int
-  usuario    Usuario  @relation(fields: [usuario_id], references: [id])
-
+  usuario_id  Int
+  usuario     Usuario  @relation(fields: [usuario_id], references: [id])
+  produto_id  Int
+  produto     Produto  @relation(fields: [produto_id], references: [id])
   qtd_vendida Int
-  data_venda  String @db.VarChar(11)
+  data_venda  DateTime @default(now())
 
   @@map("venda")
 }

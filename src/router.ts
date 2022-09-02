@@ -26,6 +26,7 @@ router.post(
 );
 router.post("/verificarLogin", new LoginController().verificarLogin);
 router.post("/novo-produto", new AdminController().novoProdutoAction);
+router.post("/produto/venda", new ProdutoController().venderProduto);
 
 router.get("/sair", new LoginController().logout);
 
