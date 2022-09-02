@@ -24,3 +24,70 @@
 .area-acao-button button.btn-deletar:hover {
   background-color: #ff3e34;
 }
+
+/* tabela de atualizar funcionario */
+
+.body > .atualizar h3 {
+  text-align: start;
+}
+
+.form-atualizar {
+  display: grid;
+  grid-template-columns: repeat(3, 350px);
+  grid-template-rows: repeat(6, 60px);
+  gap: 1.25rem;
+  height: 100%;
+}
+
+.form-atualizar .area-input-nome {
+  grid-column: 1 / 2;
+  grid-row: 1;
+}
+
+.form-atualizar .area-input-sobrenome {
+  grid-column: 2 / 3;
+  grid-row: 1;
+}
+
+.form-atualizar .area-input-cpf {
+  grid-column: 1 / 2;
+  grid-row: 2;
+}
+
+.form-atualizar .area-input-telefone {
+  grid-column: 2 / 3;
+  grid-row: 2;
+}
+
+.form-atualizar .area-nova-senha {
+  grid-column: 1 / 2;
+  grid-row: 3 / 5;
+  margin-bottom: 1.25rem;
+}
+
+.area-nova-senha fieldset {
+  padding: 1rem;
+  border: 1px solid #ccc;
+}
+.area-nova-senha fieldset input {
+  margin-bottom: 0;
+}
+.area-nova-senha fieldset label[for="senhaNova"] {
+  display: block;
+  margin-top: 1rem;
+}
+
+.area-input-nome input#nome,
+.area-input-sobrenome input#sobrenome,
+.area-input-cpf input#cpf,
+.area-input-telefone input#telefone,
+.area-input-cargo input#cargo,
+.area-nova-senha input#senhaAntiga,
+.area-nova-senha input#senhaNova {
+  width: 100%;
+}
+
+.area-button {
+  grid-column: 1 / 2;
+  grid-row: 6;
+}
