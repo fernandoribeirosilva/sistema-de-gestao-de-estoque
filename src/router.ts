@@ -3,6 +3,7 @@ import AdminController from "./controller/AdminController";
 import HomeController from "./controller/HomeController";
 import LoginController from "./controller/LoginController";
 import { ProdutoController } from "./controller/ProdutoController";
+import { UsuarioController } from "./controller/UsuarioController";
 import { loginRequired } from "./middlewares/loginRequired";
 
 const router = Router();
@@ -17,6 +18,7 @@ router.get(
 );
 router.get("/novo-produto", loginRequired, new AdminController().novoProduto);
 router.get("/produto/:id", new ProdutoController().index);
+router.get("/funcionarios/", new UsuarioController().index);
 
 router.post("/pesquisa", new HomeController().pesquisa);
 router.post(
