@@ -34,3 +34,16 @@
   cursor: pointer;
   background-color: #b2beb5;
 }
+
+.container-body .mensagem-sucesso {
+  grid-column: 3 / 4;
+  grid-row: 1;
+  width: 25rem; /* 400px */
+  height: 2.5rem; /* 50px */
+  border-radius: 0.25rem; /* 4px */
+  margin: 0 auto;
+  background-color: #03c03c;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}

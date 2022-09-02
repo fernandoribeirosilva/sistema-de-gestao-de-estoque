@@ -45,3 +45,15 @@ form input[type="number"] {
   background-color: #ff5f56;
   color: #000;
 }
+
+.error {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  height: 2.5rem; /* 40px */
+  background-color: #ff5f56;
+  color: #000;
+  border-radius: 0.25rem;
+  margin-bottom: 1.25rem; /* 20px */
+  transition: all ease 0.5s;
+}
