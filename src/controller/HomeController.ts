@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import ProdutoRepository from "../repositories/produto.repository";
-import BuscarProdutoService from "../services/produto/buscar.service";
+import BuscarProdutoService from "../services/produto/produto.service";
 
 let typeError: "error" | "success" | "";
 let mensagem: string;
