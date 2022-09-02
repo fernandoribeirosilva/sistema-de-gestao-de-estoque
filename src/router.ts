@@ -18,7 +18,12 @@ router.get(
 );
 router.get("/novo-produto", loginRequired, new AdminController().novoProduto);
 router.get("/produto/:id", new ProdutoController().index);
-router.get("/funcionarios/", new UsuarioController().index);
+router.get("/funcionarios/", loginRequired, new UsuarioController().index);
+router.get(
+  "/atualizar/:id/funcionario/",
+  loginRequired,
+  new UsuarioController().atualizar
+);
 
 router.post("/pesquisa", new HomeController().pesquisa);
 router.post(
