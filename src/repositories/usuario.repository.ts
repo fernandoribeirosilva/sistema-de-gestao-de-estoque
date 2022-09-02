@@ -55,7 +55,14 @@ class UserRepository {
             nome: true,
           },
         },
-        Telefone: true,
+        Telefone: {
+          select: {
+            numero: true,
+          },
+        },
+      },
+      orderBy: {
+        id: "asc",
       },
     });
   }
