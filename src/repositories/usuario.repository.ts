@@ -25,6 +25,28 @@ class UserRepository {
     });
   }
 
+  async buscarPeloId(id: number) {
+    return await prisma.usuario.findFirst({
+      where: { id },
+      select: {
+        id: true,
+        nome: true,
+        sobrenome: true,
+        cpf: true,
+        Telefone: {
+          select: {
+            numero: true,
+          },
+        },
+        Cargo: {
+          select: {
+            nome: true,
+          },
+        },
+      },
+    });
+  }
+
   async buscaCargo(id: number) {
     return await prisma.cargo.findFirst({
       where: { id },
