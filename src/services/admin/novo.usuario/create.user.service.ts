@@ -1,7 +1,7 @@
 import bcrypt from "bcrypt";
 import { cpf } from "cpf-cnpj-validator";
 import validator from "validator";
-import UserRepository from "../../../repositories/user.repository";
+import UserRepository from "../../../repositories/usuario.repository";
 import { User } from "../../../types/User";
 
 class CreateUseService {
