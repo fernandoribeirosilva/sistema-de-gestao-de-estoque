@@ -15,7 +15,7 @@ export default class HomeController {
     }
 
     const dados = await ProdutoRepository.pegarTodosOsProdutos();
-    const todoOsProduto = dados.map((item) => {
+    const todosProduto = dados.map((item) => {
       return {
         id: item.id,
         nome: item.nome,
@@ -32,8 +32,7 @@ export default class HomeController {
       ativoMenu: "estoque",
       typeError,
       mensagem,
-      produto,
-      todoOsProduto,
+      produto: produto ?? todosProduto,
     });
     produto = null;
   }
@@ -46,7 +45,7 @@ export default class HomeController {
         searchTerm as string
       );
 
-      let data = dadosProduto.map((dados) => {
+      let data = dadosProduto?.map((dados) => {
         return {
           id: dados.id,
           nome: dados.nome,
@@ -56,7 +55,6 @@ export default class HomeController {
           tamanho: dados.tamanho,
         };
       });
-
       produto = data;
 
       req.session.save(() => {
