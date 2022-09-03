@@ -26,13 +26,13 @@ export default class AdminController {
   async registrarFuncionarioAction(req: Request, res: Response) {
     try {
       const { nome, cpf, telefone, cargo, senha } = req.body;
-      const firstName = nome.split(" ")[0];
-      const lastName = nome.split(" ")[1];
+      const firstName: string = nome.split(" ")[0];
+      const lastName: string = nome.split(" ")[1];
 
       const newUser = new CreateUseService();
       await newUser.execute({
-        nome: firstName,
-        sobrenome: lastName,
+        nome: firstName.toLocaleLowerCase(),
+        sobrenome: lastName.toLocaleLowerCase(),
         CPF: cpf,
         telefone,
         cargoNome: cargo,
