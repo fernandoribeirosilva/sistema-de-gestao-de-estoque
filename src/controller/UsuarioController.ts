@@ -1,9 +1,11 @@
 import { Request, Response } from "express";
 import { AtualizarFuncionarioService } from "../services/admin/funcionario/atualizar";
+import BuscarFuncionarioService from "../services/admin/funcionario/buscarFuncionario.service";
 import { ListaFuncionario } from "../services/admin/funcionario/listaTodosOsFuncionarios";
 
 let typeError: "error" | "success" | "";
 let mensagem: string;
+let funcionario: any;
 
 class UsuarioController {
   async index(req: Request, res: Response) {
@@ -20,8 +22,9 @@ class UsuarioController {
       ativoMenu: "funcionarios",
       typeError,
       mensagem,
-      funcionarios,
+      funcionarios: funcionario ?? funcionarios,
     });
+    funcionario = null;
   }
 
   async atualizar(req: Request, res: Response) {
@@ -68,6 +71,39 @@ class UsuarioController {
 
       typeError = "success";
       mensagem = "Atualização realizado com sucesso.";
+
+      req.session.save(() => {
+        return res.redirect("back");
+      });
+    } catch (error: InstanceType<Error>) {
+      typeError = "error";
+      mensagem = error.message;
+
+      req.session.save(() => {
+        return res.redirect("back");
+      });
+      return;
+    }
+  }
+
+  async pesquisa(req: Request, res: Response) {
+    try {
+      const { searchTerm } = req.body;
+
+      const dadosProduto = await BuscarFuncionarioService.index(
+        searchTerm as string
+      );
+
+      let data = dadosProduto?.map((dados) => {
+        return {
+          id: dados.id,
+          nome: dados.nome,
+          sobrenome: dados.sobrenome,
+          cargo: dados.Cargo.nome,
+          telefone: dados.Telefone?.numero ?? "",
+        };
+      });
+      funcionario = data;
 
       req.session.save(() => {
         return res.redirect("back");

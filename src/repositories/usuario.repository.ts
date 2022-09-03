@@ -138,6 +138,31 @@ class UserRepository {
     });
   }
 
+  async buscarUsuarioPeloNome(nome: string) {
+    return await prisma.usuario.findMany({
+      where: {
+        nome: {
+          contains: nome,
+        },
+      },
+      select: {
+        id: true,
+        nome: true,
+        sobrenome: true,
+        Telefone: {
+          select: {
+            numero: true,
+          },
+        },
+        Cargo: {
+          select: {
+            nome: true,
+          },
+        },
+      },
+    });
+  }
+
   async listaTodosOsFuncionarios() {
     return await prisma.usuario.findMany({
       select: {
