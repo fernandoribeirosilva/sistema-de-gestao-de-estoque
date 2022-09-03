@@ -1,0 +1,86 @@
+<%- include('../partials/head') %>
+<div class="container">
+  <%- include('../partials/menu', {ativoMenu, user}) %>
+  <%-include('../partials/header', { user }) %>
+
+  <div class="body">
+    <div class="atualizar">
+      <h3>Atualizar</h3>
+    </div>
+    <div class="area-form">
+      <div class="area-erro">
+        <% if (mensagem !== "") { %>
+        <div class="mensagem-<%=typeError%>"><%=mensagem%></div>
+        <% } %>
+      </div>
+      <form
+        action="/atualizar-funcionario"
+        method="post"
+        class="form-atualizar"
+      >
+        <input type="hidden" name="usuarioId" value="<%=funcionario.id%>" />
+        <div class="area-input-nome">
+          <label for="nome">Nome:</label>
+          <input
+            type="text"
+            name="nome"
+            id="nome"
+            value="<%=funcionario.nome%>"
+          />
+        </div>
+
+        <div class="area-input-sobrenome">
+          <label for="nome">Sobrenome:</label>
+          <input
+            type="text"
+            name="sobrenome"
+            id="sobrenome"
+            value="<%=funcionario.sobrenome%>"
+          />
+        </div>
+
+        <div class="area-input-cpf">
+          <label for="cpf">CPF:</label>
+          <input type="text" name="cpf" id="cpf" value="<%=funcionario.cpf%>" />
+        </div>
+
+        <div class="area-input-telefone">
+          <label for="telefone">Telefone:</label>
+          <input
+            type="text"
+            name="telefone"
+            id="telefone"
+            value="<%=funcionario.telefone%>"
+          />
+        </div>
+
+        <div class="area-input-cargo">
+          <label for="cargo">Cargo:</label>
+          <input
+            type="text"
+            name="cargo"
+            id="cargo"
+            value="<%=funcionario.cargoNome%>"
+          />
+        </div>
+
+        <div class="area-nova-senha">
+          <fieldset>
+            <legend>Muda senha</legend>
+            <label for="senhaAntiga">Senha:</label>
+            <input type="password" name="senha" id="senhaAntiga" />
+            <label for="senhaNova">Confirmar senha:</label>
+            <input type="password" name="confirmarSenha" id="senhaNova" />
+          </fieldset>
+        </div>
+
+        <div class="area-button">
+          <button type="submit" class="btn-salvar">Salvar</button>
+          <a href="/funcionarios">Voltar</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<%- include('../partials/footer') %>
