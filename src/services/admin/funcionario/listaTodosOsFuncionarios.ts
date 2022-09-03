@@ -45,6 +45,8 @@ export class ListaFuncionario {
         cargoNome: dadosFuncionario.Cargo.nome,
         cpf: dadosFuncionario.cpf,
       };
+      return funcionario;
     }
+    return;
   }
 }
