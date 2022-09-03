@@ -21,8 +21,7 @@ header .logo a {
 }
 
 header .avatar {
-  /* 200px */
-  width: 9.375rem;
+  width: 25rem; /* 400px */
   height: inherit;
   padding: 0.25rem;
   display: flex;
