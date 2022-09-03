@@ -14,12 +14,15 @@ const inputSenha = document.querySelector('input[name="senha"]');
 let produtoId = null;
 let mensagemSucesso = "";
 
-if (mensagemError || mensagemSuccess) {
-  let mensagem = mensagemError ?? mensagemSuccess;
-  setTimeout(() => {
-    mensagem.style.display = "none";
-  }, 5000);
-}
+window.onload = () => {
+  if (mensagemError || mensagemSuccess) {
+    let mensagem = mensagemError ?? mensagemSuccess;
+    console.log(mensagem);
+    setTimeout(() => {
+      mensagem.style.display = "none";
+    }, 5000);
+  }
+};
 
 if (btnLimpaInput) {
   btnLimpaInput.addEventListener("click", (e) => {
@@ -134,13 +137,3 @@ if (btnVenda) {
     });
   });
 }
-
-/* 
-  method: "POST",
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ id }),
-  });
-*/

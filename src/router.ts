@@ -18,7 +18,7 @@ router.get(
 );
 router.get("/novo-produto", loginRequired, new AdminController().novoProduto);
 router.get("/produto/:id", new ProdutoController().index);
-router.get("/funcionarios/", loginRequired, new UsuarioController().index);
+router.get("/funcionarios", loginRequired, new UsuarioController().index);
 router.get(
   "/atualizar/:id/funcionario/",
   loginRequired,
@@ -30,6 +30,11 @@ router.post(
   "/registrar-funcionario",
   loginRequired,
   new AdminController().registrarFuncionarioAction
+);
+router.post(
+  "/atualizar-funcionario",
+  loginRequired,
+  new UsuarioController().atualizarAction
 );
 router.post("/verificarLogin", new LoginController().verificarLogin);
 router.post("/novo-produto", new AdminController().novoProdutoAction);

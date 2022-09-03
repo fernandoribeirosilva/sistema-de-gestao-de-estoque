@@ -1,8 +1,10 @@
-aside {
+.container aside {
   grid-row: 1 / -1;
   display: flex;
   flex-direction: column;
   background-color: #6699cc;
+  height: 100vh;
+  position: relative;
 }
 
 .icone-menu {
@@ -17,23 +19,19 @@ aside {
   cursor: pointer;
 }
 
-.area-menu {
-  position: relative;
-}
-
-.menu-item ul li a {
+aside .menu-item ul li a {
   display: flex;
   align-items: center;
   padding: 1rem;
   transition: background-color 300ms ease-in-out;
 }
 
-.menu-item ul li a:hover {
+aside .menu-item ul li a:hover {
   cursor: pointer;
   background-color: #f2f3f4;
 }
 
-.menu-item ul li a.ativo {
+aside .menu-item ul li a.ativo {
   background-color: #f2f3f4;
 }
 
