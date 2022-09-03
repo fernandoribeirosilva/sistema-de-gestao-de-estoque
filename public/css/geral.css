@@ -74,10 +74,17 @@ a {
 }
 
 /* MENSAGEM */
+.area-erro {
+  width: 50%;
+  position: absolute;
+  top: 60px;
+  right: 0;
+}
+
 .mensagem-error,
 .mensagem-warning,
 .mensagem-success {
-  width: 100%;
+  width: 25rem; /* 400px */
   height: 3.12rem;
   margin-bottom: 1.25rem;
   border-radius: 0.25rem;
@@ -85,6 +92,8 @@ a {
   align-items: center;
   justify-content: center;
   font-size: 1rem;
+  position: relative;
+  z-index: 1;
 }
 
 .mensagem-error {
@@ -103,10 +112,6 @@ a {
   grid-column: 2 / -1;
   grid-row: 2 / -1;
   margin: 1.25rem;
-}
-
-.area-erro {
-  width: 50%;
 }
 
 .body .area-form {
