@@ -7,19 +7,31 @@
 .area-acao-button button.btn-deletar {
   width: 30%;
   height: 1.875rem;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.area-acao-button button.btn-atualizar > a,
+.area-acao-button button.btn-deletar > a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem; /* 4px */
+  width: 100%;
+  height: inherit;
 }
 
 .area-acao-button button.btn-atualizar {
   background-color: #ffff31;
-  transition: all 300ms ease;
 }
 .area-acao-button button.btn-atualizar:hover {
-  background-color: #f7f700;
+  background-color: #ebeb02;
 }
 
 .area-acao-button button.btn-deletar {
   background-color: #ff5f56;
-  transition: all 300ms ease;
 }
 .area-acao-button button.btn-deletar:hover {
   background-color: #ff3e34;
@@ -90,4 +102,18 @@
 .area-button {
   grid-column: 1 / 2;
   grid-row: 6;
+}
+
+.area-form form .area-button a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 5rem;
+  height: 2.5rem;
+  border-radius: 0.25rem;
+  color: #f2f3f4;
+  background-color: #ff5f56;
+}
+.area-form form .area-button a:hover {
+  background-color: #ff3e34;
 }
