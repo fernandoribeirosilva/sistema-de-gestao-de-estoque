@@ -51,10 +51,10 @@ export class AtualizarFuncionarioService {
     }
 
     if (nome) {
-      updates.nome = nome;
+      updates.nome = nome.toLowerCase();
     }
     if (sobrenome) {
-      updates.sobrenome = sobrenome;
+      updates.sobrenome = sobrenome.toLowerCase();
     }
     if (CPF) {
       updates.CPF = CPF;
@@ -66,7 +66,7 @@ export class AtualizarFuncionarioService {
       }
     }
     if (cargo) {
-      updates.cargo = cargo;
+      updates.cargo = cargo.toLowerCase();
     }
 
     if (!validator.isEmpty(senha) === !validator.isEmpty(confirmarSenha)) {

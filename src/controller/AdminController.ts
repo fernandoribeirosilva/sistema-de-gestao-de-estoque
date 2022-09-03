@@ -31,11 +31,11 @@ export default class AdminController {
 
       const newUser = new CreateUseService();
       await newUser.execute({
-        nome: firstName.toLocaleLowerCase(),
-        sobrenome: lastName.toLocaleLowerCase(),
+        nome: firstName.toLowerCase(),
+        sobrenome: lastName.toLowerCase(),
         CPF: cpf,
         telefone,
-        cargoNome: cargo,
+        cargoNome: cargo.toLowerCase(),
         senha,
       });
 
