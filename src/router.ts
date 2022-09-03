@@ -25,7 +25,7 @@ router.get(
   new UsuarioController().atualizar
 );
 
-router.post("/pesquisa", new HomeController().pesquisa);
+router.post("/pesquisa/pruduto", new HomeController().pesquisa);
 router.post(
   "/registrar-funcionario",
   loginRequired,
