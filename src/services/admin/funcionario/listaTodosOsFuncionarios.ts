@@ -4,7 +4,7 @@ type FuncionarioProps = {
   id: number;
   nome: string;
   sobrenome?: string;
-  cargoNome: string;
+  cargo: string;
   telefone: string;
   cpf?: string;
 };
@@ -21,7 +21,7 @@ export class ListaFuncionario {
         funcionario.push({
           id: dados.id,
           nome: `${dados.nome} ${sobrenome}`,
-          cargoNome: dados.Cargo.nome,
+          cargo: dados.Cargo.nome,
           telefone,
         });
       });
@@ -42,7 +42,7 @@ export class ListaFuncionario {
         nome: dadosFuncionario.nome,
         sobrenome: dadosFuncionario.sobrenome ?? "",
         telefone,
-        cargoNome: dadosFuncionario.Cargo.nome,
+        cargo: dadosFuncionario.Cargo.nome,
         cpf: dadosFuncionario.cpf,
       };
       return funcionario;
