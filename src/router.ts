@@ -17,7 +17,7 @@ router.get(
   new AdminController().registrarFuncionario
 );
 router.get("/novo-produto", loginRequired, new AdminController().novoProduto);
-router.get("/produto/:id", new ProdutoController().index);
+router.get("/produto/:id", loginRequired, new ProdutoController().index);
 router.get("/funcionarios", loginRequired, new UsuarioController().index);
 router.get(
   "/atualizar/:id/funcionario/",
@@ -25,7 +25,12 @@ router.get(
   new UsuarioController().atualizar
 );
 
-router.post("/pesquisa/pruduto", new HomeController().pesquisa);
+router.post("/pesquisa/pruduto", loginRequired, new HomeController().pesquisa);
+router.post(
+  "/pesquisa/funcionario",
+  loginRequired,
+  new UsuarioController().pesquisa
+);
 router.post(
   "/registrar-funcionario",
   loginRequired,
