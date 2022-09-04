@@ -16,12 +16,9 @@ class UserRepository {
           },
         },
         Telefone: {
-          connectOrCreate: {
-            where: {
-              usuario_id: id,
-            },
-            create: { numero: telefone as string },
-          },
+          create: {
+            numero: telefone as string,
+          }
         },
       },
       select: {
@@ -143,6 +140,7 @@ class UserRepository {
       where: {
         nome: {
           contains: nome,
+          mode: "insensitive"
         },
       },
       select: {
@@ -163,8 +161,33 @@ class UserRepository {
     });
   }
 
-  async listaTodosOsFuncionarios() {
+  async funcionarios() {
     return await prisma.usuario.findMany({
+      select: {
+        id: true,
+        nome: true,
+        sobrenome: true,
+        Cargo: {
+          select: {
+            nome: true,
+          },
+        },
+        Telefone: {
+          select: {
+            numero: true,
+          },
+        },
+      },
+      orderBy: {
+        nome: "asc",
+      },
+    })
+  }
+
+  async listaTodosOsFuncionarios(page: number, perPage: number) {
+    return await prisma.usuario.findMany({
+      skip: page, // vai pular ate a pagina
+      take: perPage, // vai mostrar o tanto de posts que foi passado para perPage
       select: {
         id: true,
         nome: true,
@@ -183,6 +206,16 @@ class UserRepository {
       orderBy: {
         id: "asc",
       },
+    });
+  }
+
+  async countTotalFuncionarios(usuario: number[] | number) {
+    return await prisma.usuario.findMany({
+      where: {
+        id: {
+          in: usuario,
+        },
+      }
     });
   }
 }
