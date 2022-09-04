@@ -17,6 +17,8 @@ Para rodar esse projeto, você vai precisar adicionar as seguintes variáveis de
 
 `DATABASE_URL="postgresql://{usuario}:{senha}@localhost:5432/{nome do banco}?schema=public"`
 
+`SESSION_SECRET`
+
 ## Inserir a estrutura que foi criado do banco de dados
 
 Este comando vai criar um Histórico da estrutura da tabelas do banco de dados.
