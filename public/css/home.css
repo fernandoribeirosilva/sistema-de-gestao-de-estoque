@@ -1,7 +1,7 @@
 .container-body {
   display: grid;
   grid-template-columns: 31.25rem repeat(2, 1fr);
-  grid-template-rows: 3.125rem 1fr;
+  grid-template-rows: 3.125rem 1fr;/* 50px 1fr */
   height: 100%;
 }
 
