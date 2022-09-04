@@ -10,15 +10,21 @@ type FuncionarioProps = {
 };
 
 export class ListaFuncionario {
-  static async listaTodos() {
-    const funcionario: FuncionarioProps[] = [];
+  static async listaTodos(page: number) {
+    const funcionarios: FuncionarioProps[] = [];
+    const perPage = 5;
+    let totalUsuario = 0;
+    let user: number[] = [];
 
-    const dadosFuncionarios = await UserRepository.listaTodosOsFuncionarios();
+    const dadosFuncionarios = await UserRepository.listaTodosOsFuncionarios(
+      page,
+      perPage
+    );
     if (dadosFuncionarios) {
       dadosFuncionarios.forEach((dados) => {
         let telefone = dados.Telefone?.numero ?? "";
         let sobrenome = dados.sobrenome === null ? "" : dados.sobrenome;
-        funcionario.push({
+        funcionarios.push({
           id: dados.id,
           nome: `${dados.nome} ${sobrenome}`,
           cargo: dados.Cargo.nome,
@@ -26,10 +32,28 @@ export class ListaFuncionario {
         });
       });
 
-      return funcionario;
+      const todosOsProdutos = await UserRepository.funcionarios();
+      if (todosOsProdutos) {
+        todosOsProdutos.forEach(item => {
+          user.push(item.id);
+        })
+      }
+
+      const total = await UserRepository.countTotalFuncionarios(user);
+      total.forEach((_, index) => {
+        totalUsuario += index;
+      });
+      
+      const pageCount = Math.ceil(totalUsuario / perPage);
+
+      return {
+        funcionario: funcionarios, 
+        pageCount: pageCount,
+        currentPage: page
+      };
     }
 
-    return [];
+    return;
   }
 
   static async buscarPeloId(id: number) {
