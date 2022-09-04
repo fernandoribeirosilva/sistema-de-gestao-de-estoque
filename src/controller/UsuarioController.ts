@@ -15,7 +15,9 @@ class UsuarioController {
       }, 1000);
     }
     const { user } = res.locals;
-    const funcionarios = await ListaFuncionario.listaTodos();
+    let page = req.query.page ?? 0;
+    
+    const funcionarios = await ListaFuncionario.listaTodos(Number(page));
 
     res.render("pages/funcionarios", {
       user,
