@@ -14,8 +14,23 @@ class ProdutoRepository {
     });
   }
 
-  async pegarTodosOsProdutos() {
+  async produtos() {
     return await prisma.produto.findMany({
+      select: {
+        id: true,
+        nome: true,
+        lote: true,
+        preco: true,
+        quantidade: true,
+        tamanho: true,
+      }
+    })
+  }
+
+  async pegarTodosOsProdutos(page: number, perPage: number) {
+    return await prisma.produto.findMany({
+      skip: page, // vai pular ate a pagina
+      take: perPage, // vai mostrar o tanto de posts que foi passado para perPage
       where: {
         quantidade: {
           gt: 0,
@@ -40,6 +55,7 @@ class ProdutoRepository {
       where: {
         nome: {
           contains: nome,
+          mode: "insensitive"
         },
       },
     });
@@ -66,6 +82,16 @@ class ProdutoRepository {
       data: {
         quantidade,
       },
+    });
+  }
+
+  async countTotalProdutos(produto: number[] | number) {
+    return await prisma.produto.findMany({
+      where: {
+        id: {
+          in: produto,
+        },
+      }
     });
   }
 }
