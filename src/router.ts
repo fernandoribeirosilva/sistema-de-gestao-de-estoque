@@ -42,8 +42,8 @@ router.post(
   new UsuarioController().atualizarAction
 );
 router.post("/verificarLogin", new LoginController().verificarLogin);
-router.post("/novo-produto", new AdminController().novoProdutoAction);
-router.post("/produto/venda", new ProdutoController().venderProduto);
+router.post("/novo-produto", loginRequired, new AdminController().novoProdutoAction);
+router.post("/produto/venda", loginRequired, new ProdutoController().venderProduto);
 
 router.get("/sair", new LoginController().logout);
 
