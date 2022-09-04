@@ -157,3 +157,11 @@ form .area-button .btn-salvar:hover {
 form .area-button .btn-cancelar:hover {
   background-color: #ff3e34;
 }
+
+.area-acao-button {
+  display: flex;
+}
+
+.area-acao-button .btn-venda {
+  height: 1.875rem; /* 30px */
+}
