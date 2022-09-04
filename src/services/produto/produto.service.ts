@@ -7,7 +7,7 @@ class ProdutoService {
       throw new Error("coloque o nome do produto");
     }
     const produto = await ProdutoRepository.buscarProdutoPeloNome(
-      nome.toLowerCase()
+      nome
     );
     if (!produto) return null;
     return produto;
