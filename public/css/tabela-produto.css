@@ -21,11 +21,3 @@ table tr td {
 table tr:nth-child(even) {
   background-color: #ddd;
 }
-
-.area-acao-button {
-  display: flex;
-}
-
-.area-acao-button .btn-venda {
-  height: 1.875rem; /* 30px */
-}
