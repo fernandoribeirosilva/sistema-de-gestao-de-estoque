@@ -158,6 +158,29 @@ form .area-button .btn-cancelar:hover {
   background-color: #ff3e34;
 }
 
+.area-pagination {
+  grid-row: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: .5rem;/* 8px */
+}
+
+.area-pagination a {
+  display: inline-block;
+  padding: 0.3125rem 0.625rem;/* 10px 5px*/
+  border: 1px solid #CCC;
+  margin: 0.3125rem;/* 5px */
+  background-color: #ddd;
+  transition: all 300ms ease-in-out;
+}
+.area-pagination a:hover {
+  background-color: #c5c5c5;
+}
+.area-pagination a.ativo {
+  background-color: #b2beb5;
+}
+
 .area-acao-button {
   display: flex;
 }
