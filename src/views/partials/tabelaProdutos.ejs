@@ -1,4 +1,4 @@
-<% if (!produto.length || produto === null) { %>
+<% if (produtos.length && !produtos.length || produtos === null) { %>
 <h1>Não tem produtos reguistrados.</h1>
 <% } else { %>
 <table>
@@ -11,7 +11,7 @@
     <th>Tamanho</th>
     <th>Ação</th>
   </tr>
-  <% produto.forEach(data => { %>
+  <% produtos.forEach(data => { %>
   <tr>
     <td><%= data.id %></td>
     <td><%= data.nome %></td>
