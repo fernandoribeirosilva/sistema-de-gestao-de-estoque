@@ -21,7 +21,7 @@ class CreateProductService {
 
     let preco = parseFloat(data.preco.replace(",", ".")).toFixed(2);
     const newProduto = await ProdutoRepository.salvar({
-      nome: data.nome.toLowerCase(),
+      nome: data.nome,
       preco,
       quantidade: +data.quantidade,
       lote: data.lote,
