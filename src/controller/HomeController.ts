@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import ProdutoRepository from "../repositories/produto.repository";
+import { ListaProduto } from "../services/produto/listaTodosOsProdutos.service";
 import BuscarProdutoService from "../services/produto/produto.service";
 
 let typeError: "error" | "success" | "";
@@ -13,26 +13,17 @@ export default class HomeController {
         mensagem = "";
       }, 1000);
     }
-
-    const dados = await ProdutoRepository.pegarTodosOsProdutos();
-    const todosProduto = dados.map((item) => {
-      return {
-        id: item.id,
-        nome: item.nome,
-        preco: item.preco.toFixed(2),
-        quantidade: item.quantidade,
-        lote: item.lote,
-        tamanho: item.tamanho,
-      };
-    });
-
     const { user } = res.locals;
+    let page = req.query.page ?? 0;
+
+    const produtos = await ListaProduto.listaTodos(Number(page));
+
     res.render("pages/home", {
       user,
       ativoMenu: "estoque",
       typeError,
       mensagem,
-      produto: produto ?? todosProduto,
+      produtos: produto ?? produtos,
     });
     produto = null;
   }
