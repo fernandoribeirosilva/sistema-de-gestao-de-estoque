@@ -6,7 +6,7 @@ class BuscarFuncionarioService {
       throw new Error("coloque o nome!");
     }
     const produto = await UserRepository.buscarUsuarioPeloNome(
-      nome.toLowerCase()
+      nome
     );
     if (!produto) return null;
     return produto;
