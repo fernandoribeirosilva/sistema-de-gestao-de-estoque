@@ -20,17 +20,25 @@
         </form>
       </div>
 
-      <%if (funcionarios) { %>
-      <div class="data-produto">
-        <%-include('../partials/tabelaFuncionarios', {funcionarios}) %>
-        <%-include('../partials/modal') %>
-      </div>
+      <% if (funcionarios.funcionario && funcionarios.pageCount) { %>
+        <div class="data-produto">
+          <div class="area-table">
+            <%-include('../partials/tabelaFuncionarios', {funcionarios: funcionarios.funcionario, pageCount: funcionarios.pageCount})%> 
+            <%-include('../partials/modal') %>
+              <div class="area-pagination">
+                <% for( let i = 0; i < funcionarios.pageCount; i++ ) { %>
+                  <a class="<%=  i === funcionarios.currentPage ? 'ativo' : '' %>" href="http://localhost:3000/funcionarios?page=<%=i%>"><%=i+1%></a>
+                <% } %>
+              </div>
+          </div>
+        </div>
       <% } else { %>
-      <div class="data-produto">
-        <%-include('../partials/tabelaFuncionarios', {funcionarios})%>
-        <%-include('../partials/modal') %>
-      </div>
+        <div class="data-produto">
+          <%-include('../partials/tabelaFuncionarios', {funcionarios})
+          %> <%-include('../partials/modal') %>
+        </div>
       <% } %>
+      
     </div>
   </div>
 </div>
