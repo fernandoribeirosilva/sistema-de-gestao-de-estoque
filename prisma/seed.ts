@@ -4,31 +4,25 @@ import bcrypt from "bcrypt";
 const prisma = new PrismaClient();
 
 const main = async () => {
-  const senha = await bcrypt.hash("123", 10);
+  const senha = await bcrypt.hash("SENHA", 10);
 
   const user = await prisma.usuario.create({
     data: {
-      nome: "admin",
+      nome: "COLOQUE AQUI O NOME DO ADMIN",
       Cargo: {
         connectOrCreate: {
           where: {
-            nome: "gerente",
+            nome: "COLOQUE AQUI O NOME DO CARGO",
           },
           create: {
-            nome: "gerente",
+            nome: "COLOQUE AQUI O NOME DO CARGO",
           },
         },
       },
       senha,
-      cpf: "123.222.444-02",
+      cpf: "COLOQUE AQUI O CPF",
     },
   });
-
-  // await prisma.cargo.create({
-  //   data: {
-  //     nome: "gerente",
-  //   }
-  // })
 };
 
 main();

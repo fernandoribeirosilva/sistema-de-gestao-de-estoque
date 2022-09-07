@@ -22,7 +22,7 @@ class ProdutoService {
     return dodosProduto;
   }
 
-  async confirmaVenda(produtoId: number, quantidade: number, userId: number) {
+  async confirmaVenda(produtoId: number, quantidade: number, userId: number, preco: number) {
     if (!produtoId) {
       throw new Error("Produto não existe!");
     }
@@ -37,7 +37,7 @@ class ProdutoService {
       throw new Error("Este produto não tem, quantidade suficiente.");
     }
 
-    const venda = await VendaRepository.salvar(produtoId, quantidade, userId);
+    const venda = await VendaRepository.salvar(produtoId, quantidade, userId, preco);
     if (venda) {
       let novaQuantidade = dadosProduto.quantidade - quantidade;
       await ProdutoRepository.atualizarQuantidade(produtoId, novaQuantidade);

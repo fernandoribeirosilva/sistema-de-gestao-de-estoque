@@ -86,14 +86,14 @@ async function buscarProduto(id) {
   return data.produto;
 }
 
-async function venderProduto(produtoId, quantidade) {
+async function venderProduto(produtoId, quantidade, preco) {
   const res = await fetch(`http://localhost:3000/produto/venda`, {
     method: "POST",
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ produtoId, quantidade }),
+    body: JSON.stringify({ produtoId, quantidade, preco }),
   });
   const data = await res.json();
   if (data.error) return data.error;
@@ -109,6 +109,7 @@ if (btnCancelarVenda) {
 }
 
 if (btnConfimarVenda) {
+  const preco = document.querySelector("table .datos-produto .preco");
   btnConfimarVenda.addEventListener("click", async (e) => {
     e.preventDefault();
     let quantidade = document.querySelector(".area-from form #quantidade");
@@ -116,7 +117,11 @@ if (btnConfimarVenda) {
       mensagemDeError("Quantidade invalida.");
       return;
     }
-    const data = await venderProduto(produtoId, +quantidade.value);
+    const data = await venderProduto(
+      produtoId,
+      +quantidade.value,
+      +preco.innerText
+    );
     fecharModal();
     mensagemDeSucesso(data);
   });

@@ -21,7 +21,7 @@ Para rodar esse projeto, você vai precisar adicionar as seguintes variáveis de
 
 ## Inserir a estrutura que foi criado do banco de dados
 
-Este comando vai criar um Histórico da estrutura da tabelas do banco de dados.
+Este comando vai criar um Histórico da estrutura da tabelas no seu banco de dados.
 ```bash
   npx prisma migrate dev --name init
 ```

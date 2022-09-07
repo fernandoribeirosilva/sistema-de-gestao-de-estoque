@@ -23,8 +23,8 @@ class ProdutoRepository {
         preco: true,
         quantidade: true,
         tamanho: true,
-      }
-    })
+      },
+    });
   }
 
   async pegarTodosOsProdutos(page: number, perPage: number) {
@@ -55,7 +55,7 @@ class ProdutoRepository {
       where: {
         nome: {
           contains: nome,
-          mode: "insensitive"
+          mode: "insensitive",
         },
       },
     });
@@ -91,7 +91,7 @@ class ProdutoRepository {
         id: {
           in: produto,
         },
-      }
+      },
     });
   }
 }

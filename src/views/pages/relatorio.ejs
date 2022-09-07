@@ -1,0 +1,63 @@
+<%- include('../partials/head') %>
+<div class="container">
+  <%- include('../partials/menu', {ativoMenu, user}) %>
+  <%-include('../partials/header', { user }) %>
+
+  <div class="body">
+    <div class="area-erro">
+      <% if (mensagem !== "") { %>
+      <div class="mensagem-<%=typeError%>"><%=mensagem%></div>
+      <% } %>
+    </div>
+    <div class="container-body">
+      <div class="area-date">
+        <form action="/relatorio-action" method="post">
+          <div class="date-inicio">
+            <span>De:</span>
+            <input type="date" name="dateInicio" id="dateInicio" />
+          </div>
+          <div class="date-fim">
+            <span>Ate:</span>
+            <input type="date" name="dateFim" id="dateFim" />
+          </div>
+          <button type="submit" class="btn-buscar">Buscar</button>
+        </form>
+      </div>
+      <div class="area-relatorio">
+        <% if (produtos.venda) { %>
+        <div class="data-produto">
+          <div class="area-table">
+            <%-include('../partials/tabelaRelatorio', {produtos:
+            produtos.venda}) %> <%-include('../partials/modal') %>
+            </div>
+          </div>
+        </div>
+        <% } else { %>
+          <div class="data-produto">
+            <div class="area-table">
+              <%-include('../partials/tabelaRelatorio', {produtos}) %> 
+              <%-include('../partials/modal') %>
+            </div>
+          </div>
+            <% } %>
+          </div>
+        </div>
+      </div>
+      <%- include('../partials/footer') %>
+      <!-- 
+
+  <div class="area-date">
+        <div class="date-inicio">
+          <span>De:</span>
+          <input type="date" name="dateInicio" id="dateInicio" />
+        </div>
+        <div class="date-fim">
+          <span>Ate:</span>
+          <input type="date" name="dateFim" id="dateFim" />
+        </div>
+        <div class="btn-buscar">Buscar</div>
+      </div>
+ -->
+    </div>
+  </div>
+</div>

@@ -21,22 +21,26 @@
       </div>
 
       <% if (produtos.produto) { %>
-        <div class="data-produto">
-          <div class="area-table">
-            <%-include('../partials/tabelaProdutos', {produtos: produtos.produto, pageCount: produtos.pageCount}) %>
-            <%-include('../partials/modal') %>
-            <div class="area-pagination">
-              <% for( let i = 0; i < produtos.pageCount; i++ ) { %>
-                <a class="<%=  i === produtos.currentPage ? 'ativo' : '' %>" href="http://localhost:3000/?page=<%=i%>"><%=i+1%></a>
-              <% } %>
-            </div>
+      <div class="data-produto">
+        <div class="area-table">
+          <%-include('../partials/tabelaProdutos', { produtos: produtos.produto,
+          pageCount: produtos.pageCount}) %> <%-include('../partials/modal') %>
+          <div class="area-pagination">
+            <% for( let i = 0; i < produtos.pageCount; i++ ) { %>
+            <a
+              class="<%= i === produtos.currentPage ? 'ativo' : '' %>"
+              href="http://localhost:3000/?page=<%=i%>"
+              ><%=i+1%></a
+            >
+            <% } %>
           </div>
         </div>
+      </div>
       <% } else { %>
-        <div class="data-produto">
-          <%-include('../partials/tabelaProdutos', {produtos})%>
-          <%-include('../partials/modal') %>
-        </div>
+      <div class="data-produto">
+        <%-include('../partials/tabelaProdutos', {produtos})%>
+        <%-include('../partials/modal') %>
+      </div>
       <% } %>
     </div>
   </div>

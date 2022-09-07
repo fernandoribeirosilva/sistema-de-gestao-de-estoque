@@ -1,0 +1,22 @@
+<% if (produtos.length && !produtos.length || produtos === null) { %>
+<h1>Não tem produtos reguistrados.</h1>
+<% } else { %>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Produto</th>
+    <th>Preço</th>
+    <th>Qtd.Vendida</th>
+    <th>Valor Todal da Venda</th>
+  </tr>
+  <% produtos.forEach(data => { %>
+  <tr>
+    <td><%= data.id %></td>
+    <td><%= data.produto %></td>
+    <td><%= data.preco %></td>
+    <td><%= data.qtd_vendida %></td>
+    <td><%= data.total_venda %></td>
+  </tr>
+  <% }) %>
+</table>
+<% } %>
